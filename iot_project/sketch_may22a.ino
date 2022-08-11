@@ -5,7 +5,7 @@
 Servo s1,s2;
 WiFiClient client;
 #define AIO_USERNAME  "SDINDUSTRIES"
-Adafruit_MQTT_Client mqtt(&client,"io.adafruit.com", 1883, "SDINDUSTRIES", "aio_gWqo25YztyOqTcQ1nnRWEnxVUetm");
+Adafruit_MQTT_Client mqtt(&client,"io.adafruit.com", 1883, "name", "key");
 
 Adafruit_MQTT_Subscribe fan = Adafruit_MQTT_Subscribe(&mqtt,AIO_USERNAME"/feeds/fan");
 Adafruit_MQTT_Subscribe light = Adafruit_MQTT_Subscribe(&mqtt,AIO_USERNAME"/feeds/lights");
@@ -19,7 +19,7 @@ void setup() {
   delay(1000);
   Serial.begin(115200);
   WiFi.mode(WIFI_STA);
-  WiFi.begin("realme 3 Pro","abcd1234");
+  WiFi.begin("ssid","pass");
   while(WiFi.status()!=WL_CONNECTED){
     delay(500);
     Serial.println(".");
